@@ -14,9 +14,9 @@ end
 
 
 # ALIASES =========================================================================
-alias nconf="nvim ~/.config/nvim/"              # Open Neovim configuration
-alias fconf="nvim ~/.config/fish/config.fish"   # Open Fish configuration
-alias kconf="nvim ~/.config/kitty/kitty.conf"   # Open Kitty Terminal configuration
+alias nconf="nvim ~/dotfiles/nvim/"              # Open Neovim configuration
+alias fconf="nvim ~/dotfiles/fish/config.fish"   # Open Fish configuration
+alias kconf="nvim ~/dotfiles/kitty/kitty.conf"   # Open Kitty Terminal configuration
 
 alias air="/home/mattiskristensen/go/bin/air"   # Create GOLANG air command
 

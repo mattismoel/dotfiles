@@ -12,6 +12,8 @@ vim.o.timeoutlen = 300
 vim.o.completeopt = "menuone,noselect"
 vim.o.termguicolors = true
 vim.opt.laststatus = 3
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
 -- TABS AND INDENTATION
 vim.o.tabstop = 4

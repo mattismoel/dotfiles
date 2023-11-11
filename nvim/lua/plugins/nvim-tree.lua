@@ -5,10 +5,10 @@ return {
     },
     lazy = false,
     opts = {},
-    config = function ()
+    config = function()
         require("nvim-tree").setup()
     end,
     keys = {
-        { "<leader>e", "<CMD>NvimTreeToggle", desc = "Toggle filetree" },
+        { "<leader>e", "<CMD>NvimTreeToggle<CR>", desc = "Toggle filetree" },
     },
 }

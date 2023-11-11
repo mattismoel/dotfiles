@@ -1,3 +1,4 @@
+require("keymaps")  -- Import keymaps
 require("keymap")
 require("defaults")
 
@@ -74,15 +75,13 @@ vim.api.nvim_create_autocmd("LspAttach", {
     group = vim.api.nvim_create_augroup("UserLspConfig", {}),
     callback = function(ev)
         vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
-        local opts = { buffer = ev.buf }
         -- LSP keymaps
-        vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)     -- Go to definition
-        vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)           -- Hover docs
-        vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts) -- Rename symbol
-        vim.keymap.set("n", "<leader>fd", function()                -- Format document
-            vim.lsp.buf.format { async = true }
-        end, opts)
+        vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = ev.buf, desc = "Go to definition" })  -- Go to definition
+        vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = ev.buf, desc = "Hover documentation" })     -- Hover docs
+        vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { buffer = ev.buf, desc = "Buffer rename" }) -- Rename symbol
+        vim.keymap.set("n", "<leader>fd",
+            function()                                                                                     -- Format document
+                vim.lsp.buf.format { async = true }
+            end, { buffer = ev.buf, desc = "Format document" })
     end,
 })
-
-

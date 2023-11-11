@@ -1,6 +1,6 @@
+require("defaults") -- Import default Neovim settings
 require("keymaps")  -- Import keymaps
 require("keymap")
-require("defaults")
 
 -- Setup Lazy Nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -20,7 +20,7 @@ require("lazy").setup("plugins")
 
 
 -- COLORSCHEME
-vim.cmd.colorscheme "catppuccin"
+vim.cmd.colorscheme "catppuccin" -- Use specific colorsheme
 
 -- HIGHLIGHT ON YANK
 local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })

@@ -85,3 +85,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
             end, { buffer = ev.buf, desc = "Format document" })
     end,
 })
+
+vim.api.nvim_create_augroup("AutoFormat", {})
+vim.api.nvim_create_autocmd("BufWritePre", {
+    group = "AutoFormat",
+    callback = function ()
+        vim.lsp.buf.format()
+    end,
+})

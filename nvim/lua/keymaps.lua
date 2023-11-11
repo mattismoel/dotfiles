@@ -5,7 +5,6 @@ local keymap = require("keymap")
 keymap.keymap("n", "<leader>w", ":update<CR>", { desc = "Write file" }) -- Save file
 keymap.keymap("i", "kk", "<Esc>", { desc = "Go to normal mode" })
 keymap.keymap("n", "zz", ":qa<CR>", { desc = "Quit Neovim" })
-keymap.keymap("n", "<leader>e", ":Neotree toggle<CR>", { desc = "Toggle Neotree" }) -- Toggle Neotree filetree
 
 -- LSP --
 -- Diagnostics

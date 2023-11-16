@@ -71,6 +71,8 @@ mason_lspconfig.setup_handlers {
     end,
 }
 
+require("lspconfig").gdscript.setup {}
+
 vim.api.nvim_create_autocmd("LspAttach", {
     group = vim.api.nvim_create_augroup("UserLspConfig", {}),
     callback = function(ev)
@@ -89,7 +91,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 vim.api.nvim_create_augroup("AutoFormat", {})
 vim.api.nvim_create_autocmd("BufWritePre", {
     group = "AutoFormat",
-    callback = function ()
+    callback = function()
         vim.lsp.buf.format()
     end,
 })

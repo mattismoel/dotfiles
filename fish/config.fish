@@ -9,20 +9,12 @@ set -gx EDITOR nvim # Set default editor for fish
 
 # Default greeting message
 function fish_greeting
-    fortune | cowsay -p 
+    set greeting "👋 Welcome Back on $(uname)!"
+    if command -q cowsay
+        echo $greeting | cowsay -f small 
+    end
 end
 
-
-# ALIASES =========================================================================
-alias nconf="nvim ~/dotfiles/nvim/"              # Open Neovim configuration
-alias fconf="nvim ~/dotfiles/fish/config.fish"   # Open Fish configuration
-alias kconf="nvim ~/dotfiles/kitty/kitty.conf"   # Open Kitty Terminal configuration
-
-alias air="/home/mattiskristensen/go/bin/air"   # Create GOLANG air command
-
-
-# ENVIRONMENT VARIABLES ===========================================================
-# GO 
+set -gx PATH $PATH /usr/local/go/bin
 set -x GOPATH (go env GOPATH)
 set -x PATH $PATH (go env GOPATH)/bin
-set -gx PATH "$HOME/.cargo/bin" $PATH

@@ -14,6 +14,9 @@ vim.o.termguicolors = true             -- Enable terminal colors
 vim.opt.laststatus = 3                 -- Disable status line for irrelevant windows
 vim.g.loaded_netrw = 1                 -- Disable NetRW
 vim.g.loaded_netrwPlugin = 1           -- Disable NetRW plugin
+vim.o.wrap = false                     -- Disable line wrapping
+vim.o.textwidth = 80                   -- Enable max text width - serves as an actual linebreak, limiting line width
+vim.o.swapfile = false                 -- Disable swap files
 
 -- TABS AND INDENTATION
 vim.o.tabstop = 4      -- Set tabsize

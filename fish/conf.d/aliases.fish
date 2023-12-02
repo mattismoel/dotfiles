@@ -1,19 +1,16 @@
 # Determine which OS fish is running on and set aliases accordningly
 switch (uname)
     case "Linux"
-        echo "On Linux"
         set fish_path "~/dotfiles/fish/"
         set nvim_path "~/dotfiles/nvim/"
         set kitty_path "~/dotfiles/kitty/"
         set albumcut_path "~/Documents/Programmering/Projekter/albumcut/bin/albumcut-linux"
     case "Darwin"
-        echo "On MacOS"
         set fish_path "~/dotfiles/fish/"
         set nvim_path "~/dotfiles/nvim/"
         set kitty_path "~/dotfiles/kitty/"
         set albumcut_path "~/Users/mattiskristensen/Documents/Programmering/Projekter/albumcut/bin/albumcut-darwin-arm"
     case "Windows"
-        echo "On Windows"
     case "*"
         echo "Could not determine OS..."
 end

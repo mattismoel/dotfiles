@@ -1,23 +1,33 @@
-vim.o.hlsearch = false                 -- Highlight on search
-vim.wo.number = true                   -- Enable line numbering
-vim.o.mouse = ""                       -- Disable mouse
-vim.o.clipboard = "unnamedplus"        -- Clipboard
-vim.o.breakindent = true               -- Break indentation
-vim.o.undofile = true                  -- Track undo
-vim.o.ignorecase = true                -- Ignore case when searching command
-vim.o.smartcase = true                 -- Smart case
-vim.wo.signcolumn = "yes"              -- Enable column for signs (debugging signs, git signs etc.)
-vim.o.updatetime = 250
-vim.o.timeoutlen = 300                 -- Maximum duration for waiting for a key sequence
-vim.o.completeopt = "menuone,noselect" -- The type of window for completions
-vim.o.termguicolors = true             -- Enable terminal colors
-vim.opt.laststatus = 3                 -- Disable status line for irrelevant windows
-vim.g.loaded_netrw = 1                 -- Disable NetRW
-vim.g.loaded_netrwPlugin = 1           -- Disable NetRW plugin
-vim.o.wrap = false                     -- Disable line wrapping
-vim.o.swapfile = false                 -- Disable swap files
+-- Indentation --
+vim.opt.expandtab = true
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.autoindent = true
+vim.opt.smarttab = true
 
--- TABS AND INDENTATION
-vim.o.tabstop = 4      -- Set tabsize
-vim.o.shiftwidth = 4   -- Set shift width
-vim.o.expandtab = true -- Use spaces instead of tabs
+-- Search --
+vim.opt.hlsearch = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
+-- Text rendering --
+vim.opt.linebreak = true
+vim.opt.wrap = false
+
+-- UI --
+vim.opt.laststatus = 2
+vim.opt.ruler = true
+vim.opt.cursorline = true
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.mouse = ""
+
+-- Misc. --
+vim.opt.backspace = "indent,eol,start"
+vim.opt.confirm = true
+vim.opt.history = 1000
+vim.opt.swapfile = false
+vim.opt.clipboard = "unnamed,unnamedplus"
+-- vim.g.loaded_netrwPlugin = 1
+-- vim.g.loaded_netrw = 1

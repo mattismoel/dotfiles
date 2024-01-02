@@ -1,14 +1,3 @@
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
-local M = {}
-function M.keymap(mode, keybinding, command, opts)
-    local options = { noremap = true, silent = true }
-    if opts then
-        options = vim.tbl_extend("force", options, opts)
-    end
-    vim.keymap.set(mode, keybinding, command, options)
-end
-
-return M
-
+vim.keymap.set("i", "kk", "<Esc>", { desc = "Escape" }) -- Remap Escape key in insert mode
+-- vim.keymap.set("n", "zz", "<cmd>qa!<cr>", { desc = "Quit all (without saving)" }) -- Quit all without saving
+-- vim.keymap.set("n", "<leader>w", "<cmd>update<cr>", { desc = "Write buffer" })

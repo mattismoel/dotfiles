@@ -1,8 +1,6 @@
 return {
-    "nvim-lualine/lualine.nvim",
-    opts = {
-        sections = {
-            lualine_x = { "encoding", "filetype" },
-        },
-    },
+  "nvim-lualine/lualine.nvim",
+  opts = {
+    theme = "dracula",
+  }
 }

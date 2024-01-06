@@ -3,7 +3,6 @@ export DOT="$HOME/.dotfiles"
 
 if [ -d $ZSHPATH ]; then
   for file in $ZSHPATH/*.sh; do
-    echo "$file"
     source $file
   done
 fi

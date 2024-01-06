@@ -6,6 +6,7 @@ return {
     keys = {
       { "<leader>ff", function() require("telescope.builtin").find_files() end, desc = "Find files" },
       { "<leader>fg", function() require("telescope.builtin").live_grep() end,  desc = "Live grep" },
+      { "<leader>fp", function() require("telescope.builtin").git_files() end, desc = "Search Git files" },
     },
     config = function()
       local actions = require("telescope.actions")

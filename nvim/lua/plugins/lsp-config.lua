@@ -19,6 +19,7 @@ return {
         html = { filetypes = { "html" } },
         lua_ls = {},
         bashls = {},
+        clangd = {},
       }
 
       local capabilities = vim.lsp.protocol.make_client_capabilities()

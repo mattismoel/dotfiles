@@ -19,6 +19,7 @@ return {
         html = { filetypes = { "html" } },
         lua_ls = {},
         bashls = {},
+        templ = {},
       }
 
       local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -29,6 +30,8 @@ return {
       mason_lspconfig.setup({
         ensure_installed = vim.tbl_keys(servers)
       })
+
+      vim.filetype.add({ extension = { templ = "templ" } })
 
       mason_lspconfig.setup_handlers({
         function(server_name)

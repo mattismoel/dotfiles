@@ -90,7 +90,7 @@ return {
       { "K",          vim.lsp.buf.hover,        desc = "Hover documentation" },
       { "gd",         vim.lsp.buf.definition,   desc = "Go to definition" },
       { "<leader>ca", vim.lsp.buf.code_action,  desc = "Code actions" },
-      { "<leader>fd", vim.lsp.buf.format,       desc = "Format" },
+      -- { "<leader>fd", vim.lsp.buf.format,       desc = "Format" },
       { "]d",         vim.diagnostic.goto_next, desc = "Go to next diagnostic" },
       { "[d",         vim.diagnostic.goto_prev, desc = "Go to previous diagnostic" },
     },

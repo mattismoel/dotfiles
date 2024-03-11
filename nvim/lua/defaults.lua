@@ -13,6 +13,7 @@ vim.opt.smartcase = true
 -- Text rendering --
 vim.opt.linebreak = true
 vim.opt.wrap = false
+vim.opt.spelllang = "da,en"
 
 -- UI --
 vim.opt.laststatus = 2

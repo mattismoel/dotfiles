@@ -50,44 +50,7 @@ return {
   {
     "neovim/nvim-lspconfig",
     lazy = false,
-    -- config = function()
-    --   local capabilities = require("cmp_nvim_lsp").default_capabilities()
-    --   local lspconfig = require("lspconfig")
-    --
-    --   local function setup_lsp(server, config)
-    --     lspconfig[server].setup(vim.tbl_extend("force", {
-    --       capabilities = capabilities,
-    --     }, config or {}))
-    --   end
-    --
 
-    --   local servers = { "gopls", "lua_ls", "tsserver", "gdscript", "svelte", "tailwindcss" }
-    --
-    --   for _, server in ipairs(servers) do
-    --     setup_lsp(server, {})
-    --   end
-
-    -- lspconfig.gopls.setup({
-    -- capabilities
-    -- })
-    --
-    -- lspconfig.lua_ls.setup({
-    -- capabilities = capabilities,
-    -- })
-    --
-    -- lspconfig.tsserver.setup({
-    -- capabilities = capabilities,
-    -- })
-    --
-    -- lspconfig.gdscript.setup({
-    -- capabilities = capabilities
-    -- })
-    --
-    -- lspconfig.svelte.setup({
-    --        capabilities = capabilities
-
-    -- })
-    -- end,
     keys = {
       { "K",          vim.lsp.buf.hover,        desc = "Hover documentation" },
       { "gd",         vim.lsp.buf.definition,   desc = "Go to definition" },

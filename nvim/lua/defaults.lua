@@ -11,8 +11,8 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
 -- Text rendering --
-vim.opt.linebreak = true
 vim.opt.wrap = false
+vim.opt.colorcolumn = "80"
 vim.opt.spelllang = "da,en"
 
 -- UI --

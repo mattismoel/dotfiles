@@ -16,7 +16,12 @@ return {
         gopls = {},
         pyright = {},
         tsserver = {},
-        html = { filetypes = { "html" } },
+        html = {
+          filetypes = { "html" },
+          init_options = {
+            provideFormatter = false,
+          },
+        },
         lua_ls = {},
         bashls = {},
         clangd = {},

@@ -1,5 +1,5 @@
-source "$DOT/helpers.sh"
-source "$DOT/colors.sh"
+source "$(pwd)/helpers.sh"
+source "$(pwd)/colors.sh"
 
 # Set environment variable for the working directory.
 # This makes one able to call $WD in all configurations, and get the path to the .dotfiles directory.

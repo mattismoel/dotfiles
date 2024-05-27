@@ -26,7 +26,7 @@ return {
         bashls = {},
         clangd = {},
         templ = {},
-        tailwindcss = { filetypes = { "html", "tsx", "jsx", "templ" } },
+        tailwindcss = { filetypes = { "html", "tsx", "jsx", "templ", "svelte" } },
       }
 
       vim.filetype.add({ extension = { templ = "templ" } })

@@ -9,6 +9,7 @@ boolask () {
   fi
 }
 
+
 # Checks if a symlink already exists.
 symlinkexists () {
   if [ -L "$1" ]; then

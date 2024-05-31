@@ -1,56 +1,23 @@
-# Fonts
-font_family      Hack Nerd Font
-italic_font auto
-bold_font auto
-font_size 12.0
+# Fonts.
+font_family		JetBrains Mono Nerd Font Mono
+bold_font		auto
+italic_font		auto
+bold_italic_font	auto
+font_size 11.0
 
-
-# Cursor
+# Cursor.
 cursor_shape block
-
-
-# Background
-background_opacity 0.97
-background_blur 69
-
-
-# Window
-window_padding_width 4
-remember_window_size no
-initial_window_width 960
-initial_window_height 600
-window_border_width 1pt
-window_margin_width 1
-# active_border_color none
-inactive_text_alpha 0.3
-hide_window_decorations yes
-
-
-# Scroll
-scrollback_lines 2000
-wheel_scroll_multiplier 10
-
-
-# URL
-url_style curly
-
-
-# Tab bar
-tab_bar_margin_width 4.0
-tab_bar_style powerline
-tab_bar_min_tabs 1
-
-# Layouts
-
-# Advanced
-shell fish
 shell_integration no-cursor
 
+# Windows.
+window_border_width 0px
+window_margin 0
 
-# SHORTCUTS
-map f1 new_tab_with_cwd
+# background_blur 10
+background_opacity 0.8
+
 
 # BEGIN_KITTY_THEME
-# Tokyo Night
+# Kanagawa_dragon
 include current-theme.conf
 # END_KITTY_THEME

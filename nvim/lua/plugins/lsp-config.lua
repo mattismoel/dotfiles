@@ -48,6 +48,7 @@ return {
             settings = servers[server_name],
             filetypes = (servers[server_name] or {}).filetypes
           })
+          require("lspconfig").gdscript.setup {}
         end
       })
     end,

@@ -4,6 +4,7 @@ vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.autoindent = true
 vim.opt.smarttab = true
+vim.opt.termguicolors = true
 
 -- Search --
 vim.opt.hlsearch = true

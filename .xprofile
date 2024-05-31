@@ -1,0 +1,4 @@
+setxkbmap -option caps:escape
+setxkbmap -layout us -variant altgr-intl -option nodeadkeys
+
+nitrogen --restore

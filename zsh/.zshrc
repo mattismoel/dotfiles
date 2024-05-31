@@ -15,6 +15,8 @@ fi
 
 source "${ZINIT_HOME}/zinit.zsh"
 
+bindkey -e
+
 # Add PowerLevel10k.
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 
@@ -46,7 +48,10 @@ setopt hist_find_no_dups
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'  # Case insensitive completion.
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}" # Colored completions.
 
-# Aliases
+# Load system aliases.
+source $HOME/.aliases.sh
+
+# Set general aliases.
 alias ls='ls --color' # Colored ls command.
 alias p="cd ~/Documents/Programmering/Projekter && clear"
 

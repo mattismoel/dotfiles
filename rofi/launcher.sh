@@ -15,5 +15,5 @@
 ## Run
 rofi \
     -show combi \
-    -combi-modes "drun,window,emoji" \
+    -combi-modes "drun,window,emoji,p:rofi-power-menu --choices reboot/shutdown --confirm hibernate" \
     -emoji-format "{emoji} {name}" \

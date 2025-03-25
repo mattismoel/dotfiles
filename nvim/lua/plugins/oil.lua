@@ -1,14 +1,11 @@
 return {
-  "stevearc/oil.nvim",
-  opts = {
-    default_file_explorer = true,
-    columns = { "icon", "size", },
-  },
-  dependencies = {
-    "nvim-tree/nvim-web-devicons",
-  },
-  keys = {
-    { "-", "<cmd>Oil<cr>", desc = "Oil file explorer" },
-  },
-  lazy = false,
+	"stevearc/oil.nvim",
+	---@module 'oil'
+	---@type oil.SetupOpts
+	opts = {},
+	dependencies = { { "echasnovski/mini.icons", opts = {} } },
+	keys = {
+		{ "-", "<CMD>Oil<CR>", desc = "Oil" },
+	},
+	lazy = false,
 }

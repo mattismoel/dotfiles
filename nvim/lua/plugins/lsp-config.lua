@@ -1,69 +1,124 @@
 return {
-  {
-    "williamboman/mason.nvim",
-    opts = {},
-    lazy = false,
-  },
-  {
-    "williamboman/mason-lspconfig.nvim",
-    lazy = false,
-    opts = {
-      ensure_installed = { "lua_ls", "html", "bashls" },
-    },
-    config = function()
-      require("mason-lspconfig").setup()
-      local servers = {
-        gopls = {},
-        pyright = {},
-        tsserver = {},
-        html = {
-          filetypes = { "html" },
-          init_options = {
-            provideFormatter = false,
-          },
-        },
-        lua_ls = {},
-        bashls = {},
-        clangd = {},
-        templ = {},
-        tailwindcss = { filetypes = { "html", "tsx", "jsx", "templ", "svelte" } },
-      }
+	"neovim/nvim-lspconfig",
+	dependencies = {
+		{ "williamboman/mason.nvim", opts = {} },
+		"williamboman/mason-lspconfig.nvim",
+		"WhoIsSethDaniel/mason-tool-installer.nvim",
+		{ "j-hui/fidget.nvim", opts = {} },
+		"hrsh7th/cmp-nvim-lsp",
+	},
+	config = function()
+		vim.api.nvim_create_autocmd("LspAttach", {
+			group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
+			callback = function(e)
+				local map = function(keys, fn, desc, mode)
+					mode = mode or "n"
+					vim.keymap.set(mode, keys, fn, { buffer = e.buf, desc = "LSP: " .. desc })
+				end
 
-      vim.filetype.add({ extension = { templ = "templ" } })
-      local capabilities = vim.lsp.protocol.make_client_capabilities()
-      capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
+				map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
+				map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
 
-      local mason_lspconfig = require("mason-lspconfig")
+				map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
+				map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [Action]", { "n", "x" })
 
-      mason_lspconfig.setup({
-        ensure_installed = vim.tbl_keys(servers)
-      })
+				local function client_supports_method(client, method, bufnr)
+					if vim.fn.has("nvim-0.11") == 1 then
+						return client:supports_method(method, bufnr)
+					else
+						return client.supports_method(method, { bufnr = bufnr })
+					end
+				end
 
-      vim.filetype.add({ extension = { templ = "templ" } })
+				local client = vim.lsp.get_client_by_id(e.data.client_id)
+				if
+					client
+					and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_documentHighlight, e.buf)
+				then
+					local highlight_augroup = vim.api.nvim_create_augroup("lsp-highlight", { clear = false })
+					vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+						buffer = e.buf,
+						group = highlight_augroup,
+						callback = vim.lsp.buf.document_highlight,
+					})
 
-      mason_lspconfig.setup_handlers({
-        function(server_name)
-          require("lspconfig")[server_name].setup({
-            capabilities = capabilities,
-            settings = servers[server_name],
-            filetypes = (servers[server_name] or {}).filetypes
-          })
-          require("lspconfig").gdscript.setup {}
-        end
-      })
-    end,
-  },
-  {
-    "neovim/nvim-lspconfig",
-    lazy = false,
+					vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
+						buffer = e.buf,
+						group = highlight_augroup,
+						callback = vim.lsp.buf.clear_references,
+					})
 
-    keys = {
-      { "K",          vim.lsp.buf.hover,        desc = "Hover documentation" },
-      { "gd",         vim.lsp.buf.definition,   desc = "Go to definition" },
-      { "<leader>ca", vim.lsp.buf.code_action,  desc = "Code actions" },
-      -- { "<leader>fd", vim.lsp.buf.format,       desc = "Format" },
-      { "]d",         vim.diagnostic.goto_next, desc = "Go to next diagnostic" },
-      { "[d",         vim.diagnostic.goto_prev, desc = "Go to previous diagnostic" },
-    },
-  },
+					vim.api.nvim_create_autocmd("LspDetach", {
+						group = vim.api.nvim_create_augroup("lsp-detach", { clear = true }),
+						callback = function(e2)
+							vim.lsp.buf.clear_references()
+							vim.api.nvim_clear_autocmds({ group = "lsp-highlight", buffer = e2.buf })
+						end,
+					})
+				end
+			end,
+		})
+
+		vim.diagnostic.config({
+			severity_sort = true,
+			float = { border = "rounded", source = "if_many" },
+			underline = { severity = vim.diagnostic.severity.ERROR },
+			signs = vim.g.have_nerd_font and {
+				text = {
+					[vim.diagnostic.severity.ERROR] = "󰅚 ",
+					[vim.diagnostic.severity.WARN] = "󰀪 ",
+					[vim.diagnostic.severity.INFO] = "󰋽 ",
+					[vim.diagnostic.severity.HINT] = "󰌶 ",
+				},
+			} or {},
+			virtual_text = {
+				source = "if_many",
+				spacing = 2,
+				format = function(diagnostic)
+					local msg = {
+						[vim.diagnostic.severity.ERROR] = diagnostic.message,
+						[vim.diagnostic.severity.WARN] = diagnostic.message,
+						[vim.diagnostic.severity.INFO] = diagnostic.message,
+						[vim.diagnostic.severity.HINT] = diagnostic.message,
+					}
+					return msg[diagnostic.severity]
+				end,
+			},
+		})
+
+		local capabilities = vim.lsp.protocol.make_client_capabilities()
+		capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
+		local servers = {
+			clangd = {},
+			gopls = {},
+			ts_ls = {},
+			lua_ls = {
+				settings = {
+					Lua = {
+						completion = {
+							callSnippet = "Replace",
+						},
+					},
+				},
+			},
+		}
+
+		local ensure_installed = vim.tbl_keys(servers or {})
+
+		vim.list_extend(ensure_installed, { "stylua" })
+
+		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
+
+		require("mason-lspconfig").setup({
+			ensure_installed = {},
+			automatic_installation = false,
+			handlers = {
+				function(server_name)
+					local server = servers[server_name] or {}
+					server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
+					require("lspconfig")[server_name].setup(server)
+				end,
+			},
+		})
+	end,
 }

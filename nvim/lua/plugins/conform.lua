@@ -1,11 +1,9 @@
 return {
-	"stevearc/conform.nvim",
-	event = { "BufWritePre" },
-	cmd = { "ConformInfo" },
-	opts = {
-		notify_on_error = false,
-		formatters_by_ft = {
-			lua = { "stylua" },
-		},
-	},
+  'stevearc/conform.nvim',
+  opts = {
+    format_on_save = {
+      timeout_ms = 500,
+      lsp_format = "fallback",
+    }
+  },
 }

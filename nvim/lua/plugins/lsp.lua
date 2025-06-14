@@ -22,4 +22,6 @@ return {
       vim.lsp.enable(server_name)
     end
   end,
+
+  vim.keymap.set("n", "<leader>rn", function() vim.lsp.buf.rename() end, {desc = "[R]e[n]ame"})
 }

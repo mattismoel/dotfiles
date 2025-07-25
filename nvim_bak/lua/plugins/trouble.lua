@@ -1,0 +1,21 @@
+return {}
+-- return {
+--   "folke/trouble.nvim",
+--   cmd = "Trouble",
+--   opts = {
+--   },
+--   keys = {
+--     { "<leader>ld", "<CMD>Trouble diagnostics toggle<CR>", desc = "[L]ist [D]iagnostics" }
+--   },
+--   modes = {
+--     test = {
+--       mode = "diagnostics",
+--       preview = {
+--         type = "split",
+--         relative = "win",
+--         position = "right",
+--         size = 0.3,
+--       },
+--     },
+--   },
+-- }

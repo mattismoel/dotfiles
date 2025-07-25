@@ -11,6 +11,17 @@ return {
       html = {},
       lua_ls = {},
       gopls = {},
+			yamlls = {},
+			emmet_language_server = {},
+			zls = {},
+			tailwindcss = {},
+			rust_analyzer = {},
+			clangd = {},
+			omnisharp = {},
+			gdscript = {
+				-- name = "godot",
+				-- cmd = vim.lsp.rpc.connect("127.0.0.1", 6005),
+			},
     },
   },
   config = function(_, opts)

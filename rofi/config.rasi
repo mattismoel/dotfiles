@@ -23,20 +23,20 @@ configuration {
 }
 
 /*****----- Global Properties -----*****/
-@import                          "kanagawa.rasi"
+@import                          "moonfly.rasi"
 
 * {
-    border-colour:               var(selected);
+    border-colour:               #222222;
     handle-colour:               var(active);
     background-colour:           var(background);
     foreground-colour:           var(foreground);
     alternate-background:        var(background-alt);
     normal-background:           var(background);
     normal-foreground:           var(foreground);
-    active-background:           var(active);
+    active-background:           var(foreground);
     active-foreground:           var(background);
-    selected-normal-background:  var(selected);
-    selected-normal-foreground:  var(background);
+    selected-normal-background:  #222222;
+    selected-normal-foreground:  var(foreground);
     selected-active-background:  var(urgent);
     selected-active-foreground:  var(background);
     alternate-normal-background: var(background);
@@ -63,7 +63,7 @@ window {
     margin:                      0px;
     padding:                     0px;
     border:                      0px solid;
-    border-radius:               0;
+    border-radius:               4px;
     border-color:                @border-colour;
     cursor:                      "default";
     background-color:            @background-colour;
@@ -75,8 +75,8 @@ mainbox {
     spacing:                     10px;
     margin:                      0px;
     padding:                     20px;
-    border:                      0px solid;
-    border-radius:               0px 0px 0px 0px;
+    border:                      1px solid;
+    border-radius:               4px;
     border-color:                @border-colour;
     background-color:            transparent;
     children:                    [ "inputbar", "message", "listview" ];

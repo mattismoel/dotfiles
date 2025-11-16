@@ -7,7 +7,9 @@ return {
   ---@type blink.cmp.Config
   opts = {
     completion = {
-      -- auto_brackets = { enabled = false }
-    },
+			accept = {
+				auto_brackets = { enabled = false }
+			},
+		},
   },
 }

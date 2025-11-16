@@ -1,80 +1,78 @@
 {
-  "output": "DVI-D-1",
-  "modules-left": [
-    "hyprland/workspaces",
-    "custom/separator",
-    "hyprland/window"
-  ],
-  "modules-center": [
-    "clock"
-  ],
-  "modules-right": [
-    "mpris",
-    "custom/separator",
-    "pulseaudio",
-    "custom/separator",
-    "cpu",
-    "custom/separator",
-    "disk",
-    "network"
-  ],
-  // MODULES ___________________________________________
-  "custom/separator": {
-    "format": "|",
-    "interval": "once",
-    "tooltil": false
-  },
-  "mpris": {
-    "interval": 1,
-    "format": "{title} - {artist} ({position}/{length})",
-    "title-len": 18,
-    "artist-len": 18
-  },
-  "cpu": {
-    "interval": 5,
-    "format": "  {usage}%"
-  },
-  "clock": {
-    "interval": 1,
-    "timezone": "Europe/Copenhagen",
-    "format": "{:%a, %d %b, %Y, %H:%M:%S}"
-  },
-  "disk": {
-    "interval": 5,
-    "format": "󰋊  {percentage_used}% of {specific_total:.0f} GB",
-    "unit": "GB"
-  },
-  "network": {
-    "interval": 10,
-    "format": "",
-    "format-disconnected": "Disconnected ⚠"
-  },
-  "hyprland/workspaces": {
-    "persistent-workspaces": {
-      "HDMI-A-1": [
-        2
-      ]
-    },
-    "format": "{name}",
-    "format-window-separator": " | ",
-    "all-outputs": true
-  },
-  "hyprland/window": {
-    "format": "{}"
-  },
-  "pulseaudio": {
-    "format": "{icon}  {volume}%",
-    "scroll-step": 10,
-    "format-muted": "{icon}  MUTED",
-    "format-icons": {
-      "headphone": "",
-      "default": [
-        "",
-        "",
-        ""
-      ],
-      "default-muted": ""
-    },
-    "on-click": "pavucontrol"
-  }
+	"output": "DVI-D-1",
+	"modules-left": [
+		"hyprland/workspaces",
+		"custom/separator",
+		"hyprland/window"
+	],
+	"modules-center": [
+		"clock"
+	],
+	"modules-right": [
+		"mpris",
+		"custom/separator",
+		"pulseaudio",
+		"custom/separator",
+		"cpu",
+		"custom/separator",
+		"disk",
+		"network"
+	],
+	// MODULES ___________________________________________
+	"custom/separator": {
+		"format": "|",
+		"interval": "once",
+		"tooltil": false
+	},
+	"mpris": {
+		"interval": 1,
+		"format": "{title} / {artist}"
+	},
+	"cpu": {
+		"interval": 5,
+		"format": "  {usage}%"
+	},
+	"clock": {
+		"interval": 1,
+		"timezone": "Europe/Copenhagen",
+		"format": "{:%a %d %b / %Y %H:%M}"
+	},
+	"disk": {
+		"interval": 5,
+		"format": "󰋊 {percentage_used}%",
+		"unit": "GB"
+	},
+	"network": {
+		"interval": 10,
+		"format": "",
+		"format-disconnected": "Disconnected ⚠"
+	},
+	"hyprland/workspaces": {
+		"persistent-workspaces": {
+			"HDMI-A-1": [
+				2
+			]
+		},
+		"format": "{name}",
+		"format-window-separator": " | ",
+		"all-outputs": true
+	},
+	"hyprland/window": {
+		"format": "{}"
+	},
+	"pulseaudio": {
+		"format": "{icon} {volume}%",
+		"scroll-step": 10,
+		"format-muted": "MUTED",
+		"format-icons": {
+			"headphone": "",
+			"default": [
+				"",
+				"",
+				""
+			],
+			"default-muted": ""
+		},
+		"on-click": "pavucontrol"
+	}
 }

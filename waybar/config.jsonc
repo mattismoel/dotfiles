@@ -1,5 +1,5 @@
 {
-	"output": "DVI-D-1",
+	// "output": "DVI-D-1",
 	"modules-left": [
 		"hyprland/workspaces",
 		"custom/separator",
@@ -16,7 +16,9 @@
 		"cpu",
 		"custom/separator",
 		"disk",
-		"network"
+		"network",
+		"custom/separator",
+		"battery"
 	],
 	// MODULES ___________________________________________
 	"custom/separator": {
@@ -46,6 +48,11 @@
 		"interval": 10,
 		"format": "",
 		"format-disconnected": "Disconnected ⚠"
+	},
+	"battery": {
+		"format-charging": "󰂄 {capacity}%",
+		"format": "{icon} {capacity}%",
+		"format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
 	},
 	"hyprland/workspaces": {
 		"persistent-workspaces": {

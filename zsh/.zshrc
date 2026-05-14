@@ -50,10 +50,19 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}" # Colored completions.
 
 # Load system aliases.
 source $HOME/.aliases.sh
+source $HOME/.environment.sh
 
 # Set general aliases.
-alias ls='ls --color' # Colored ls command.
-alias p="cd ~/Documents/Programmering/Projekter && clear"
 
 export PATH=${PATH}:/usr/local/go/bin
 export PATH=${PATH}:$(go env GOPATH)/bin
+
+# bun completions
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+export PATH=${PATH}:~/.dotnet/tools
+
+export GOEXPERIMENT="nodwarf5,jsonv2"

@@ -1,5 +1,24 @@
 require("binds")
 require("autostart")
+local util = require("util")
+
+---Modules that are optionally loaded per device specific configuration.
+local optional_modules = { "nvidia", "display" }
+
+--- The commands to run when hyprland loads.
+---@type string[]
+local autostart_cmds = { "waybar", "hyprpaper", "dunst" }
+
+-- Load optional modules.
+for _, module in ipairs(optional_modules) do
+  if util.is_module_available(module) then require(module) end
+end
+
+-- AUTOSTART --
+hl.on("hyprland.start", function()
+  local cmd = util.create_concat_cmd(autostart_cmds)
+  hl.exec_cmd(cmd)
+end)
 
 -- ANIMATION CURVES --
 hl.curve("myBezier", { type = "bezier", points = { { 0.05, 0.9 }, { 0.1, 1.05 }, } })

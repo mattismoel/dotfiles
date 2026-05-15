@@ -5,7 +5,7 @@ local terminal = "foot"
 local browser = "zen-browser"
 
 ---@type string Which file manager to use.
-local file_manager = "dolphin"
+local file_manager = "nautilus"
 
 local menu = "~/.config/rofi/launcher.sh"
 

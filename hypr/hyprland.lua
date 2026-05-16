@@ -7,7 +7,12 @@ local optional_modules = { "nvidia", "display" }
 
 --- The commands to run when hyprland loads.
 ---@type string[]
-local autostart_cmds = { "waybar", "hyprpaper", "dunst" }
+local autostart_cmds = {
+  "waybar",
+  "hyprpaper",
+  "dunst",
+  "docker context use default",
+}
 
 -- Load optional modules.
 for _, module in ipairs(optional_modules) do

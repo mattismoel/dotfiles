@@ -52,8 +52,6 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}" # Colored completions.
 source $HOME/.aliases.sh
 source $HOME/.environment.sh
 
-# Set general aliases.
-
 export PATH=${PATH}:/usr/local/go/bin
 export PATH=${PATH}:$(go env GOPATH)/bin
 

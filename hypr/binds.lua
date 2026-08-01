@@ -25,6 +25,7 @@ bind({ "SUPER", "RETURN" }, exec_cmd(defaults.terminal))
 bind({ "SUPER", "B", }, exec_cmd(defaults.browser))
 bind({ "SUPER", "SPACE" }, exec_cmd(defaults.menu))
 bind({ "SUPER", "E" }, exec_cmd(defaults.file_manager))
+bind({ "SUPER", "SHIFT", "E" }, exec_cmd(defaults.emoji_picker))
 
 --- FUNCTION BINDS ---
 bind({ "XF86MonBrightnessUp" }, exec_cmd("brightnessctl -e set +15%"))

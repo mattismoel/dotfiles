@@ -41,6 +41,8 @@ bind({ "XF86AudioPlay" }, exec_cmd("playerctl play-pause"))
 
 --- WINDOW BINDS ---
 bind({ "SUPER", "SHIFT", "Q" }, window.close())
+bind({ "SUPER", "mouse:273" }, hl.dsp.window.resize())
+bind({ "SUPER", "F" }, hl.dsp.window.fullscreen())
 
 for direction, key in pairs(direction_to_key) do
   bind({ "SUPER", key }, focus({ direction = direction }))

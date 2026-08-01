@@ -9,9 +9,12 @@ local file_manager = "nautilus"
 
 local menu = "~/.config/rofi/launcher.sh"
 
+local emoji_picker = "rofi -modi emoji -show emoji"
+
 return {
   terminal = terminal,
   browser = browser,
   file_manager = file_manager,
-  menu = menu
+  menu = menu,
+  emoji_picker = emoji_picker
 }

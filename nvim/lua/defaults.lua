@@ -61,6 +61,22 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 vim.api.nvim_create_user_command("LspInfo", "checkhealth vim.lsp", { desc = "Show LSP Info" })
 
+
+local function restartLsps()
+  local clients = vim.lsp.get_clients({ bufnr = 0 })
+
+  for _, client in ipairs(clients) do
+    client:stop()
+  end
+
+  vim.cmd.update()
+  vim.defer_fn(vim.cmd.edit, 1000)
+end
+
+vim.api.nvim_create_user_command("LspRestart", restartLsps, { desc = "Restart LSP clients" })
+
+vim.api.nvim_create_user_command("PackUpdate", function() vim.pack.update() end, { desc = "Update packages" })
+
 opt.winborder = "single"
 
 vim.cmd.filetype("plugin indent on")

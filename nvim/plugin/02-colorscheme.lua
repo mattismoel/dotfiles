@@ -1,5 +1,16 @@
-vim.pack.add({ "https://github.com/sainnhe/gruvbox-material" })
+vim.pack.add({ "https://github.com/rebelot/kanagawa.nvim" })
 
-vim.g.gruvbox_material_background = "hard"
+require("kanagawa").setup({
+  colors = {
+    theme = {
+      all = {
+        ui = {
+          bg_gutter = "none"
+        }
+      }
+    }
+  }
 
-vim.cmd.colorscheme("gruvbox-material")
+})
+
+vim.cmd.colorscheme("kanagawa-dragon")
